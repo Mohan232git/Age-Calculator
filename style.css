@@ -13,13 +13,15 @@ body {
 
 }
 .container {
-    width: 750px;
+    max-width: 750px;
+    min-width: 300px;
     background-color: white;
     padding: 50px 70px;
     border-end-end-radius: 150px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    margin: 0 auto;
 }
 .heading {
     font-size: 32px;
@@ -29,8 +31,7 @@ body {
 form {
     
     display: flex;
-    
-    align-items: start;
+    align-items:start;
 }
 
 .div-form {
@@ -55,8 +56,13 @@ form input {
     padding: 10px 20px;
     color: black;
     font-size: 32px;
-    width: 150px;
+    /* max-width: 20%; */
+     max-width: 50px;
     border-radius: 10px;
+}
+
+form input::placeholder{
+    text-align: center;
 }
 
 
@@ -114,3 +120,47 @@ form input:focus {
 .content h2 {
     display: inline;
 }
+
+
+@media (max-width:400px){
+
+        .div-form {
+            padding:0 ;
+            /* margin-right: 10px; */
+           
+        }
+        form input {
+            font-size: 14px;
+            max-width: 80px;
+            padding: 10px 5px;
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding:20px;
+        }
+        .div-form label {
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        form {
+            justify-content: space-between;
+        }
+
+        .arrow {
+            position: relative;
+            margin: 50px 0;
+        }
+        .arrow #btn {
+            position: absolute;
+            left: 40%;
+            
+        }
+        .content p {
+            font-size: 50px;
+        }
+        .content h2 {
+            font-size:40px ;
+            margin-left: 10px;
+        }
+}   

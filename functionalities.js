@@ -89,8 +89,6 @@ function agecal() {
     display_Years.innerHTML = tempYear[1] ;
     display_month.innerHTML = tempMonth ;
     display_days.innerHTML = tempYear[0] ;
-        
-
 }
 
 
