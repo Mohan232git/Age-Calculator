@@ -84,18 +84,101 @@ function agecal() {
     let display_Years = document.getElementById('years') ;
     let display_month = document.getElementById('months') ;
     let display_days = document.getElementById('days') ;
-    let tempYear =yearcal(brith_year , brith_date,brith_Month) ;
-    let tempMonth =monthcount(brith_Month,brith_date) ;
-    display_Years.innerHTML = tempYear[1] ;
-    display_month.innerHTML = tempMonth ;
-    display_days.innerHTML = tempYear[0] ;
+    
+    
+    if(yearidentifier()==true && monthidentifier()==true && dateidentifier()==true && isemty()==false){
+        let tempYear =yearcal(brith_year , brith_date,brith_Month) ;
+        let tempMonth =monthcount(brith_Month,brith_date) ;
+        display_Years.innerHTML = tempYear[1] ;
+        display_month.innerHTML = tempMonth ;
+        display_days.innerHTML = tempYear[0] ;
+    }
 }
 
 
 
 
-    
+const yearidentifier = () => {
+    let year = new Date().getFullYear();
+    const inputyear = document.querySelector('#Year');
 
+    if(inputyear.value <= year) {
+        inputyear.style.borderColor='lightgray'
+        return true ;
+    }
+    else {
+        inputyear.style.borderColor = 'red';
+        inputyear.value='';
+    }
+}
+
+const monthidentifier = () =>{
+    let maxmonths = 12 ;
+    const inputmonth = document.querySelector('#Month') ;
+    if(inputmonth.value <= maxmonths) {
+        inputmonth.style.borderColor='lightgray'
+        return true
+    }
+    else {
+        inputmonth.style.borderColor='red';
+        inputmonth.value = '';
+    }
+}
+const dateidentifier = () =>{
+    let maxdate = 31 ;
+    const inputdate = document.querySelector('#Day') ;
+    if(inputdate.value <= maxdate) {
+        inputdate.style.borderColor='lightgray';
+        return true;
+    }
+    else {
+        inputdate.style.borderColor='red';
+        inputdate.value = '';
+    }
+}
+
+function isemty(){
+    const brith_year = ( document.getElementById('Year'));
+    const brith_Month = (document.getElementById('Month'));
+    const brith_date= (document.getElementById('Day')) ;
+    if(brith_Month.value=='' && brith_date.value=='' && brith_year.value==''){
+        brith_date.style.borderColor = 'red';
+        brith_Month.style.borderColor = 'red';
+        brith_year.style.borderColor = 'red';
+        return true
+    }
+    if(brith_date.value==''){
+        /* alert('brith date is not fulled'); */
+        brith_date.style.borderColor = 'red';
+        return true ;
+    }
+    if(brith_Month.value==''){
+        /* alert('brith month is not fulled'); */
+        brith_Month.style.borderColor = 'red';
+        return true ;
+    }
+    if(brith_year.value==''){
+        /* alert('brith year is not fulled'); */
+        brith_year.style.borderColor = 'red';
+        return true ;
+    }
+    else {
+        brith_date.style.borderColor = 'lightgray';
+        brith_Month.style.borderColor = 'lightgray';
+        brith_year.style.borderColor = 'lightgray';
+        return false ;
+    }
+   /*  if(brith_date.value==''){
+        alert('brith date is not fulled');
+        return false ;
+    } */
+}
+
+addEventListener('keydown',function(event){
+        if(event.keyCode==13) {
+            agecal();
+        }
+}) 
 
 
 
